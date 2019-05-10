@@ -1,5 +1,7 @@
 
-# Frontend Assignment
+# Intricately Front-End Challenge
+
+Requirements and design mocks are available [here](https://docs.google.com/document/d/1B3ofnK0Nc2Dawtpj1fLky9ekzqjjri_EjDXQv8Nmpiw/edit#heading=h.rmoqo627p0vn).
 
 ## Prerequisites
 
