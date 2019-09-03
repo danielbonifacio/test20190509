@@ -1,8 +1,10 @@
-import 'Styles/main.scss';
-import Vue from 'vue';
-import HelloWorld from 'Components/HelloWorld.vue';
+import 'Styles/main.scss'
+import Vue from 'vue'
+import App from './App.vue'
+import router from 'Router'
 
 new Vue({
-  render: createElement => createElement(HelloWorld),
-  el: '#app'
-});
+  el: '#app',
+  router,
+  render: createElement => createElement(App)
+})

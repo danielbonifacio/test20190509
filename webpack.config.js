@@ -21,7 +21,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      Router: path.resolve(__dirname, 'src', 'router'),
+      Router: path.resolve(__dirname, 'src', 'core', 'router'),
+      Layouts: path.resolve(__dirname, 'src', 'layouts'),
       Store: path.resolve(__dirname, 'src', 'store'),
       Pages: path.resolve(__dirname, 'src', 'pages'),
       Components: path.resolve(__dirname, 'src', 'components'),
