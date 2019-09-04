@@ -23,7 +23,9 @@
           id="similar"
           title="Similar companies"
         >
-          <companies-list />
+          <companies-list
+            :companies="similar"
+          />
         </widget>
         <widget
           id="spent"
@@ -58,6 +60,9 @@ export default {
     Widget
   },
   computed: {
+    similar() {
+      return this.$store.getters['companies/similar']
+    },
     company() {
       return this.$store.getters['companies/selected']
     }
@@ -72,6 +77,7 @@ export default {
   margin: 0 -.5rem;
   > .col {
     flex: 1;
+    max-width: 50%;
     padding: .5rem;
 
     display: flex;
