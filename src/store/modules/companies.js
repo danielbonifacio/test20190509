@@ -1,10 +1,12 @@
 // TODO: fetch from api
 import company from 'Store/mock/company'
+import similarCompanies from 'Store/mock/similarCompanies'
 
 export default {
   namespaced: true,
   state: {
-    selected: company
+    selected: company,
+    similar: similarCompanies
   },
   mutations: {
     select(state, company) {
@@ -20,6 +22,9 @@ export default {
     },
     selectedCompanyActivities(state) {
       return state.selected.activities
+    },
+    similar(state) {
+      return state.similar
     }
   },
   actions: {
