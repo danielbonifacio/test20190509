@@ -31,7 +31,10 @@
           id="spent"
           title="Company Spend History"
         >
-          spent
+          <line-chart
+            :styles="{ height: '100px' }"
+            :chartdata="chartdata"
+          />
         </widget>
         <widget
           id="spent2"
@@ -47,11 +50,13 @@
 </template>
 
 <script>
+import numeral from 'numeral'
 import Default from 'Layouts/Default.vue'
 import CompanyBadge from 'Components/CompanyBadge.vue'
 import Widget from 'Components/Widget.vue'
 import ActivitiesList from 'Components/ActivitiesList.vue'
 import CompaniesList from 'Components/CompaniesList.vue'
+import LineChart from 'Components/LineChart.js'
 
 export default {
   components: {
@@ -59,6 +64,7 @@ export default {
     CompaniesList,
     CompanyBadge,
     ActivitiesList,
+    LineChart,
     Widget
   },
   computed: {
@@ -67,6 +73,21 @@ export default {
     },
     company() {
       return this.$store.getters['companies/selected']
+    },
+    chartdata() {
+      return {
+        labels: ['0', '2', '4', '6', '8', '10', '12'],
+        datasets: [
+          {
+            label: 'Spent',
+            backgroundColor: 'rgba(45,202,155, .3)',
+            pointBorderColor: 'transparent',
+            borderColor: 'rgb(45,202,155)',
+            pointBackgroundColor: 'transparent',
+            data: this.company.spendHistoryChart || []
+          }
+        ]
+      }
     }
   }
 }

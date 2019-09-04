@@ -127,5 +127,6 @@ export default {
       url: '#',
       description: 'Microsoft spend on product $300,000'
     }
-  ]
+  ],
+  spendHistoryChart: [25000, 35000, 30000, 55000, 40000, 30000, 85000]
 }
