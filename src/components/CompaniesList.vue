@@ -93,13 +93,6 @@ export default {
 
         .description {
           color: lighten($color, 20%);
-          p {
-            // prevent long text to break layout
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 70%;
-            white-space: nowrap;
-          }
         }
       }
     }
