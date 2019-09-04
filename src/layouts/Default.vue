@@ -7,17 +7,14 @@
     <div class="container">
       <nav class="sidebar">
         <ul>
-          <li>
-            <a href="#">Company data</a>
-          </li>
-          <li>
-            <a href="#">Company table</a>
-          </li>
-          <li>
+          <li
+            v-for="item in navbar"
+            :key="item.route"
+          >
             <a
-              class="active"
-              href="#"
-            >Company page</a>
+              :class="{ active: $route.path === item.route }"
+              @click="goTo(item.route)"
+            >{{ item.title }}</a>
           </li>
         </ul>
       </nav>
@@ -33,6 +30,28 @@ import Header from 'Components/Header.vue'
 export default {
   components: {
     pageHeader: Header
+  },
+  data: () => ({
+    navbar: [
+      {
+        title: 'Company data',
+        route: '/data'
+      },
+      {
+        title: 'Company page',
+        route: '/'
+      }
+    ]
+  }),
+  methods: {
+    goTo(route) {
+      this.$router.push(route)
+        .catch(err => {
+          err.name === 'NavigationDuplicated'
+            ? null
+            : console.error(err)
+        })
+    }
   }
 }
 </script>
