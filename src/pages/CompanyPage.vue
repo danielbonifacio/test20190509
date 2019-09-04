@@ -10,8 +10,11 @@
       <widget
         id="activities"
         title="Activities"
+        no-padding
       >
-        slot
+        <activities-list
+          :activities="company.activities"
+        />
       </widget>
       <widget
         id="similar"
@@ -39,11 +42,13 @@
 import Default from 'Layouts/Default.vue'
 import CompanyBadge from 'Components/CompanyBadge.vue'
 import Widget from 'Components/Widget.vue'
+import ActivitiesList from 'Components/ActivitiesList.vue'
 
 export default {
   components: {
     layout: Default,
     CompanyBadge,
+    ActivitiesList,
     Widget
   },
   computed: {
