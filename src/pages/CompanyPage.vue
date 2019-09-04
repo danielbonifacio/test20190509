@@ -7,33 +7,37 @@
       :description="company.description"
     />
     <div id="content">
-      <widget
-        id="activities"
-        title="Activities"
-        no-padding
-      >
-        <activities-list
-          :activities="company.activities"
-        />
-      </widget>
-      <widget
-        id="similar"
-        title="Similar companies"
-      >
-        similar
-      </widget>
-      <widget
-        id="spent"
-        title="Company Spend History"
-      >
-        spent
-      </widget>
-      <widget
-        id="spent2"
-        title="Company Spend History"
-      >
-        spent2
-      </widget>
+      <div class="col">
+        <widget
+          id="activities"
+          title="Activities"
+          no-padding
+        >
+          <activities-list
+            :activities="company.activities"
+          />
+        </widget>
+      </div>
+      <div class="col">
+        <widget
+          id="similar"
+          title="Similar companies"
+        >
+          similar
+        </widget>
+        <widget
+          id="spent"
+          title="Company Spend History"
+        >
+          spent
+        </widget>
+        <widget
+          id="spent2"
+          title="Company Spend History"
+        >
+          spent2
+        </widget>
+      </div>
     </div>
   </layout>
 </template>
@@ -61,20 +65,23 @@ export default {
 
 <style lang="scss" scoped>
 #content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(auto-fill, 200px);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
+  display: flex;
+  
+  margin: 0 -.5rem;
+  > .col {
+    flex: 1;
+    padding: .5rem;
 
-  grid-template:
-    'activities similar'
-    'activities spent'
-    'activities spent2';
+    display: flex;
+    flex-direction: column;
 
-  #activities { grid-area: activities }
-  #similar { grid-area: similar }
-  #spent { grid-area: spent }
-  #spent2 { grid-area: spent2 }
+    .widget {
+      width: 100%;
+      flex: 1;
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }
 </style>
