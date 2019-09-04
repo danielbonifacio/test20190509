@@ -14,6 +14,12 @@ export default {
   getters: {
     selected(state) {
       return state.selected
+    },
+    selectedCompanyName(state) {
+      return state.selected.name
+    },
+    selectedCompanyActivities(state) {
+      return state.selected.activities
     }
   },
   actions: {
