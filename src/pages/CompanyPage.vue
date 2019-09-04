@@ -37,7 +37,9 @@
           id="spent2"
           title="Company Spend History"
         >
-          spent2
+          <companies-list
+            :companies="company.spendHistory"
+          />
         </widget>
       </div>
     </div>

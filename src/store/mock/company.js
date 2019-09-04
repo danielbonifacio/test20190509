@@ -111,5 +111,21 @@ export default {
         }
       }
     }
+  ],
+  spendHistory: [
+    {
+      id: 1,
+      name: 'Google Cloud Platform',
+      logo: 'gcloud',
+      url: '#',
+      description: 'Microsoft spend on product $500,000'
+    },
+    {
+      id: 2,
+      name: 'CenturyLink CDN',
+      logo: 'century',
+      url: '#',
+      description: 'Microsoft spend on product $300,000'
+    }
   ]
 }
