@@ -23,7 +23,7 @@
           id="similar"
           title="Similar companies"
         >
-          similar
+          <companies-list />
         </widget>
         <widget
           id="spent"
@@ -47,10 +47,12 @@ import Default from 'Layouts/Default.vue'
 import CompanyBadge from 'Components/CompanyBadge.vue'
 import Widget from 'Components/Widget.vue'
 import ActivitiesList from 'Components/ActivitiesList.vue'
+import CompaniesList from 'Components/CompaniesList.vue'
 
 export default {
   components: {
     layout: Default,
+    CompaniesList,
     CompanyBadge,
     ActivitiesList,
     Widget
