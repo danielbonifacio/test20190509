@@ -85,9 +85,25 @@ export default {
       }
     },
     {
+      id: 123,
+      icon: 'performance-monitoring',
+      date: '20/08/2019',
+      operation: {
+        type: 'replace',
+        replace: {
+          title: 'Kaiser Permanente',
+          url: '#'
+        },
+        property: {
+          amount: 1,
+          url: '#'
+        }
+      }
+    },
+    {
       id: 6,
       icon: 'saas',
-      date: '20/08/2019',
+      date: '19/08/2019',
       operation: {
         type: 'replace',
         replace: {
@@ -103,7 +119,7 @@ export default {
     {
       id: 7,
       icon: 'content-delivery',
-      date: '20/08/2019',
+      date: '18/08/2019',
       operation: {
         type: 'launch',
         service: {

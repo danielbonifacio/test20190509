@@ -13,9 +13,7 @@
           title="Activities"
           no-padding
         >
-          <activities-list
-            :activities="company.activities"
-          />
+          <activities-list />
         </widget>
       </div>
       <div class="col">

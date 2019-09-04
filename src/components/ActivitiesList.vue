@@ -68,10 +68,13 @@ export default {
 $border_color: lighten($primary, 50%);
 
 .activities-list {
+  height: 100%;
   ul {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     list-style: none;
+    height: 100%;
+    justify-content: space-between;
 
     li {
       width: 100%;

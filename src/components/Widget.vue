@@ -52,6 +52,7 @@ $border_color: lighten($primary, 50%);
   }
 
   .body {
+    height: calc(100% - 3rem);
     &:not(.no-padding) {
       padding: 1rem;
     }
