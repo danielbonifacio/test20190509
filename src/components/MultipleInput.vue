@@ -110,6 +110,8 @@ export default {
 
       set(value) {
         this.shouldValidate = true
+        
+        // prevent infinite loop
         if (value !== this.value.minimum) {
           this.$emit('input', {
             minimum: value,
@@ -125,6 +127,8 @@ export default {
 
       set(value) {
         this.shouldValidate = true
+        
+        // prevent infinite loop
         if (value !== this.value.maximum) {
           this.$emit('input', {
             maximum: value,

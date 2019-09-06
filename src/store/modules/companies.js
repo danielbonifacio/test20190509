@@ -5,7 +5,7 @@ export default {
   namespaced: true,
   state: {
     selected: null,
-    similar: similarCompanies
+    similar: similarCompanies // TODO: fetch from api
   },
   mutations: {
     select(state, company) {
