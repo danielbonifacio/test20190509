@@ -12,13 +12,40 @@
     "predev": "npm run clean:build",
     "dev": "cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server",
     "lint": "node_modules/.bin/eslint \"src/**/**.+(js|vue)\"",
-    "test": "node_modules/.bin/jest",
+    "test": "node_modules/.bin/jest --watch",
     "start": "npm run dev"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.(css|scss|less)$": "jest-css-modules",
+      ".*\\.(vue)$": "vue-jest"
+    },
+    "moduleNameMapper": {
+      "^Components/(.*)$": "<rootDir>/src/components/$1",
+      "^Store/(.*)$": "<rootDir>/src/store/$1",
+      "^Core/(.*)$": "<rootDir>/src/core/$1",
+      "^vue$": "vue/dist/vue.common.js"
+    },
+    "globals": {
+      "NODE_ENV": "test"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "vue"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.0",
+    "axios-mock-adapter": "^1.17.0",
     "chart.js": "^2.8.0",
     "numeral": "^2.0.6",
     "v-click-outside": "^2.1.3",
@@ -63,7 +90,11 @@
     "faker": "^4.1.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "inject-loader": "^4.0.1",
     "jest": "^23.6.0",
+    "jest-css-modules": "^2.1.0",
+    "jsdom": "^15.1.1",
+    "jsdom-global": "^3.0.2",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0",
@@ -75,7 +106,7 @@
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^2.0.1",
     "url-loader": "^1.1.2",
-    "vue-jest": "^3.0.1",
+    "vue-jest": "^3.0.4",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "2.6.8",

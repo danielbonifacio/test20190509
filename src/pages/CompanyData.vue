@@ -12,6 +12,7 @@
       <div class="submit">
         <Button
           label="save"
+          @click="modal = false"
         />
       </div>
     </Modal>
@@ -26,23 +27,28 @@
         <Input
           v-model="form.company.name"
           label="Company Name"
+          :valid="validateName"
           placeholder="e.g: Your Company Name"
         />
         <Input
           v-model.lazy="form.company.spend"
-          label="Company Name"
+          label="Company Spend"
+          :valid="validateSpend"
           mask-money
           placeholder="e.g: $150,000"
+          positive-only
         />
-        <Input
+        <MultipleInput
           v-model.lazy="form.company.spendAbility"
+          :valid="validateSpendAbility"
           mask-money
-          label="Company Name"
+          label="Company Spend Ability"
           placeholder="e.g: $150,000 - $330,000"
         />
       </div>
       <div class="text-area">
         <TextArea
+          v-model="form.company.notes"
           label="Notes"
           placeholder="e.g: Good Tech Company"
           @click.native.stop="modal = true"
@@ -55,6 +61,7 @@
 <script>
 import Default from 'Layouts/Default.vue'
 import Input from 'Components/Input.vue'
+import MultipleInput from 'Components/MultipleInput.vue'
 import Modal from 'Components/Modal.vue'
 import Button from 'Components/Button.vue'
 import TextArea from 'Components/TextArea.vue'
@@ -63,20 +70,53 @@ export default {
   components: {
     layout: Default,
     Input,
+    MultipleInput,
     Modal,
     Button,
     TextArea,
   },
   data: () => ({
-    modal: true,
+    modal: false,
     form: {
       company: {
         name: null,
         spend: null,
+        spendAbility: {
+          minimum: null,
+          maximum: null
+        },
         notes: null
       }
     }
-  })
+  }),
+  computed: {
+    validateName() {
+      const value = this.form.company.name
+      return !!value
+    },
+    validateSpend() {
+      const value = this.unmask(this.form.company.spend)
+      return !!value && value > 0
+    },
+    validateSpendAbility() {
+      const min = this.unmask(this.form.company.spendAbility.minimum)
+      const max = this.unmask(this.form.company.spendAbility.maximum)
+
+      return (!!min && !!max)
+        && min < max
+    }
+  },
+  methods: {
+    unmask(value) {
+      return value
+        && parseFloat(
+          value
+            .replace(/\$/g, '')
+            .replace(/,/g, '')
+          )
+          .toFixed(2)
+    }
+  }
 }
 </script>
 

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component should render correctly 1`] = `
+"<div class=\\"input\\"><label><!----> <input type=\\"text\\" class=\\"\\"> <div class=\\"clear\\">
+      Clear
+    </div></label></div>"
+`;

@@ -4,6 +4,9 @@
     class="default"
   >
     <page-header />
+    <div class="breadcrumb">
+      home / {{ $route.meta.breadcrumb }}
+    </div>
     <div class="container">
       <nav class="sidebar">
         <ul>
@@ -22,6 +25,8 @@
         <slot />
       </main>
     </div>
+
+    <footer />
   </div>
 </template>
 
@@ -61,17 +66,30 @@ export default {
 @import "~Styles/_mixins.scss";
 
 $navbar_border: darken($foreground, 15%);
+$header_height: 70px;
+$footer_height: 5rem;
 
 #layout.default {
+  min-height: 100vh;
   .container {
     max-width: 960px;
-    margin: 1rem auto 0;
+    margin: 0 auto 1rem;
+    min-height: calc(100vh - #{$header_height} - #{$footer_height} - 2rem);
 
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: calc(80vh);
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
+  }
+
+  .breadcrumb {
+    text-transform: uppercase;
+    color: lighten($color, 30%);
+    font-size: .9rem;
+    height: 3rem;
+    line-height: 3rem;
+    max-width: 960px;
+    margin: auto;
   }
 
   .sidebar {
@@ -126,6 +144,12 @@ $navbar_border: darken($foreground, 15%);
         }
       }
     }
+  }
+
+  footer {
+    background-color: $foreground;
+    height: $footer_height;
+    width: 100%;
   }
 }
 </style>

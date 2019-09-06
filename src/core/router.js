@@ -9,11 +9,17 @@ import CompanyData from 'Pages/CompanyData.vue'
 const routes = [
   {
     path: '/',
-    component: CompanyPage
+    component: CompanyPage,
+    meta: {
+      breadcrumb: 'Company page'
+    }
   },
   {
     path: '/data',
-    component: CompanyData
+    component: CompanyData,
+    meta: {
+      breadcrumb: 'Company data'
+    }
   }
 ]
 

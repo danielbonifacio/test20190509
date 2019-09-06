@@ -24,6 +24,7 @@ module.exports = {
       Router: path.resolve(__dirname, 'src', 'core', 'router'),
       Layouts: path.resolve(__dirname, 'src', 'layouts'),
       Store: path.resolve(__dirname, 'src', 'store'),
+      Core: path.resolve(__dirname, 'src', 'core'),
       Pages: path.resolve(__dirname, 'src', 'pages'),
       Components: path.resolve(__dirname, 'src', 'components'),
       Directives: path.resolve(__dirname, 'src', 'directives'),

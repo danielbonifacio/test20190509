@@ -1,48 +1,54 @@
 <template>
   <layout>
     <company-badge
+      v-if="company"
       :name="company.name"
       :address="company.address"
       :avatar="company.avatar"
       :description="company.description"
     />
     <div id="content">
-      <div class="col">
-        <widget
-          id="activities"
-          title="Activities"
-          no-padding
-        >
-          <activities-list />
-        </widget>
-      </div>
-      <div class="col">
-        <widget
-          id="similar"
-          title="Similar companies"
-        >
-          <companies-list
-            :companies="similar"
-          />
-        </widget>
-        <widget
-          id="spent"
-          title="Company Spend History"
-        >
-          <line-chart
-            :styles="{ height: '100px' }"
-            :chartdata="chartdata"
-          />
-        </widget>
-        <widget
-          id="spent2"
-          title="Company Spend History"
-        >
-          <companies-list
-            :companies="company.spendHistory"
-          />
-        </widget>
-      </div>
+      <template v-if="company">
+        <div class="col">
+          <widget
+            id="activities"
+            title="Activities"
+            no-padding
+          >
+            <activities-list />
+          </widget>
+        </div>
+        <div class="col">
+          <widget
+            id="similar"
+            title="Similar companies"
+          >
+            <companies-list
+              :companies="similar"
+            />
+          </widget>
+          <widget
+            id="spent"
+            title="Company Spend History"
+          >
+            <line-chart
+              :styles="{ height: '100px' }"
+              :chartdata="chartdata"
+            />
+          </widget>
+          <widget
+            id="spent2"
+            title="Company Spend History"
+          >
+            <companies-list
+              :companies="company.spendHistory"
+            />
+          </widget>
+        </div>
+      </template>
+      <template v-else>
+        loading....
+      </template>
     </div>
   </layout>
 </template>
@@ -87,6 +93,9 @@ export default {
         ]
       }
     }
+  },
+  mounted() {
+    this.$store.dispatch('companies/fetchCompany', 1)
   }
 }
 </script>

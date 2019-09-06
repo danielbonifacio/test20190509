@@ -1,11 +1,10 @@
-// TODO: fetch from api
-import company from 'Store/mock/company'
 import similarCompanies from 'Store/mock/similarCompanies'
+import companies from 'Core/services/companies'
 
 export default {
   namespaced: true,
   state: {
-    selected: company,
+    selected: null,
     similar: similarCompanies
   },
   mutations: {
@@ -30,6 +29,11 @@ export default {
   actions: {
     selectCompany(context, company) {
       context.commit('select', company)
+    },
+    fetchCompany(context, companyId) {
+      companies.fetchCompany(companyId)
+        .then(company => context.commit('select', company))
+        .catch(err => console.log(err.message))
     }
   }
 }
