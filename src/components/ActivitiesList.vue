@@ -7,7 +7,7 @@
         class="activity"
       >
         <div class="date">
-          {{ activity.date }}
+          {{ formatDate(activity.date) }}
         </div>
         <div class="icon">
           <img
@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   computed: {
     activities() {
@@ -54,6 +56,9 @@ export default {
     }
   },
   methods: {
+    formatDate(date) {
+      return moment(date, 'DD/MM/YYYY').fromNow()
+    },
     getImgUrl(pic) {
       return require('Images/icons/' + pic)
     }
