@@ -140,16 +140,6 @@ export default {
   },
 
   methods: {
-    unmask(value) {
-      const v = value
-      return parseFloat(
-          value
-            .replace(/\$/g, '')
-            .replace(/,/g, '')
-          )
-          .toFixed(2)
-    },
-
     clear() {
       this.$emit('input', {
         maximum: null,

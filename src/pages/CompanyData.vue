@@ -99,9 +99,9 @@ export default {
       return !!value && value > 0
     },
     validateSpendAbility() {
-      const min = this.unmask(this.form.company.spendAbility.minimum)
-      const max = this.unmask(this.form.company.spendAbility.maximum)
-
+      const min = parseFloat(this.unmask(this.form.company.spendAbility.minimum))
+      const max = parseFloat(this.unmask(this.form.company.spendAbility.maximum))
+      
       return (!!min && !!max)
         && min < max
     }
